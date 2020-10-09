@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
 
 const PriceScreen = ({navigation}) => (
-    <View>
+    <View style={styles.container}>
         <Text>Price</Text>
     </View>
 )
