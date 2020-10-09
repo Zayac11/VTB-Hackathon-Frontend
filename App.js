@@ -4,25 +4,28 @@ import {StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import CartScreen from './src/Components/CameraScreen'
 import BodyScreen from './screens/Body'
 import PriceScreen from './screens/Price'
 import BrandScreen from './screens/Brand'
 import ModelScreen from './screens/Model'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator(
+    
+);
 
 function App() {
   return (
-  
-    <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="body" component={BodyScreen} />
-            <Stack.Screen name="brand" component={BrandScreen} />
-            <Stack.Screen name="price" component={PriceScreen} />
-            <Stack.Screen name="moedl" component={ModelScreen} />
-        </Stack.Navigator>
-    </NavigationContainer>
-    
+        <NavigationContainer>
+            <StatusBar hidden={true} backgroundColor = '#000'></StatusBar>
+            <Stack.Navigator initialRouteName="body" screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="body" component={BodyScreen} />
+                <Stack.Screen name="camera" component={CartScreen} />
+                <Stack.Screen name="brand" component={BrandScreen} />
+                <Stack.Screen name="price" component={PriceScreen} />
+                <Stack.Screen name="model" component={ModelScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
   )
 }
 
