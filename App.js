@@ -1,46 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {StyleSheet, Text, View } from 'react-native';
-import Test from './src/Components/TestComponent.js'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+import BodyScreen from './screens/Body'
+import PriceScreen from './screens/Price'
+import BrandScreen from './screens/Brand'
+import ModelScreen from './screens/Model'
+
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    // <View style={styles.container}>
-    //   <Text style={styles.helloText}>Hello world!</Text>
-    //   <StatusBar style="auto" />
-    // </View>
-    // <View style = {{flex: 1}}>  
-    //     <View style = {{flex: 3, backgroundColor: 'green'}}></View>  
-    //     <View style = {{flex: 2, backgroundColor: 'chocolate'}}></View>  
-    //     <View style = {{flex: 1, backgroundColor: 'maroon'}}></View>  
-    // </View>  
-    <View style={styles.container}>
-        <Test name = 'Egor'/>
-    </View>
-  );
+  
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen name="body" component={BodyScreen} />
+            <Stack.Screen name="brand" component={BrandScreen} />
+            <Stack.Screen name="price" component={PriceScreen} />
+            <Stack.Screen name="moedl" component={ModelScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+    
+  )
 }
 
-
-
-// class Test extends React.Component {
-//     render() {
-//         return(
-//             <View style = {{flex: 1}}>  
-//                 <View style = {{flex: 3, backgroundColor: 'green'}}></View>  
-//                 <View style = {{flex: 2, backgroundColor: 'chocolate'}}></View>  
-//                 <View style = {{flex: 1, backgroundColor: 'maroon'}}></View>  
-//             </View> 
-//         )
-//     }
-// }
-
-// const Test = (props) => {
-//     return (
-//         <View style={styles.container}>
-//             <Text>{props.name}</Text>
-//         </View>
-//     )
-// }
 
 const styles = StyleSheet.create({
     container: {
@@ -55,3 +40,7 @@ const styles = StyleSheet.create({
     },
   
   });
+
+
+  export default App;
+
