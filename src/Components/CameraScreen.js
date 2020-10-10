@@ -46,7 +46,7 @@ export default function CartScreen({navigation}) {
 		console.log(text);
 		// console.log(text[0]);
 		
-		navigation.navigate('brand', {list: {...text}})
+		navigation.navigate('brand', {data: text})
 	}
 
 	const container = item === null ? (
@@ -57,15 +57,19 @@ export default function CartScreen({navigation}) {
 	
     return (
         <View style={{flex: 1}}>
-			{/* <BrandScreen item={item} /> */}
+			{
+			item === null ?
             <Camera style={{flex: 1}} type={Camera.Constants.Type.back} ref={ref => {setCameraRef(ref);}}>
-			<View style={{
-				flex: 1,
-				backgroundColor: 'transparent',
-				flexDirection: 'row'
-			}}></View>
-			{container}
-		  </Camera>
+				<View style={{
+					flex: 1,
+					backgroundColor: 'transparent',
+					flexDirection: 'row'
+				}}></View>
+				{container}
+			</Camera>
+			:
+			<BrandScreen list = {item} />			
+			}
         </View>
     );
 }
