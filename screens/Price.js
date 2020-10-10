@@ -5,7 +5,9 @@ import carLogo from '../assets/car.png'
 import doshik from '../assets/doshik.png'
 import arrow from '../assets/Union.png'
 
-const PriceScreen = ({navigation}) => (
+const PriceScreen = ({ route, navigation}) => {
+    const {data} = route.params   
+    return(
     <ScrollView>
         
         <View style={styles.container}>
@@ -18,10 +20,13 @@ const PriceScreen = ({navigation}) => (
                     source = {arrow}
                 />
             </TouchableOpacity>
-            <Text style={styles.model}>BMW X5</Text>
+            <View style = {{flexDirection: 'row'}}>
+                <Text style={styles.model}>{data.title} </Text>
+                <Text style={styles.model}>{data.model}</Text>
+            </View>
             <Image 
-                style={{width: 250, height: 210,}}
-                source = {carLogo}
+                style={{width: '100%', height: 210,}}
+                source={{uri: data.photo}}
             />
             <View style = {{marginTop: 15, width: '90%'}}>
                 <Text style = {{fontSize: 18, fontWeight: 'bold', textAlign: 'center'}}>
@@ -29,15 +34,15 @@ const PriceScreen = ({navigation}) => (
                 </Text>
                 <View style = {styles.stats}>
                     <Text style = {styles.statsText}>Type</Text>
-                    <Text style = {styles.statsText}>Sedan</Text>
+                    <Text style = {styles.statsText}>{data.type}</Text>
                 </View>
                 <View style = {styles.stats}>
                     <Text style = {styles.statsText}>Doors</Text>
-                    <Text style = {styles.statsText}>4</Text>
+                    <Text style = {styles.statsText}>{data.doors}</Text>
                 </View>
                 <View style = {styles.stats}>
                     <Text style = {styles.statsText}>Colors</Text>
-                    <Text style = {styles.statsText}>6</Text>
+                    <Text style = {styles.statsText}>{data.colors}</Text>
                 </View>
             </View>
             <View style = {{marginVertical: 15, width: '90%'}}>
@@ -60,10 +65,10 @@ const PriceScreen = ({navigation}) => (
                     </Text>
                     <View style = {styles.info}>
                         <Text style = {styles.statsText}>68,65</Text>
-                        <Text style = {styles.statsText}>2790000₽</Text>
+                        <Text style = {styles.statsText}>{data.price}₽</Text>
                     </View>
                 </View>
-                <View style = {styles.stats}>
+                {/* <View style = {styles.stats}>
                     <Text style = {styles.statsText}>
                         USD
                     </Text>
@@ -95,7 +100,7 @@ const PriceScreen = ({navigation}) => (
                             />
                         </View>
                     </View>
-                </View>
+                </View> */}
             </View>
             <TouchableOpacity style={styles.buyButton}
                             onPress = {
@@ -106,7 +111,8 @@ const PriceScreen = ({navigation}) => (
             </TouchableOpacity>
         </View>
     </ScrollView>
-)
+    )
+}
 
 const styles = StyleSheet.create({
     container: {

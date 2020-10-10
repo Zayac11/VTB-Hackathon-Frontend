@@ -44,7 +44,7 @@ class BrandScreen extends React.Component {
                 "photo":
                 "https://207231.selcdn.ru/locator-media/models_desktop_q90/tradeins.space-uploads-photo-7045549-1ed1ce8ed1655930df51584bf5e294dbdee4f469.png",
                 "price": 1974900
-            }
+            },
         ],
           isLoading: false,
           index: 0
@@ -87,22 +87,26 @@ class BrandScreen extends React.Component {
                     <View style={styles.carContainer}>
                         <Image 
                             style={styles.tinyLogo}
-                            source={carLogo}
+                            source={{uri: this.state.data[this.state.index].photo}}
                         />
-                        <Text style={styles.titleText}>{this.state.data[this.state.index].title}</Text>
-                        <Text style={styles.carText}>Description</Text>
+                        <Text style={styles.titleText}>{this.state.data[this.state.index].title} {this.state.data[this.state.index].model}</Text>
+                        <View style = {{width: '100%', paddingHorizontal: 15, flexDirection: 'row', justifyContent: 'space-between'}}> 
+                            <Text style={styles.carText}>Price</Text>
+                            <Text style={styles.carText}>{this.state.data[this.state.index].price}₽</Text>
+                        </View>
                     </View>
                     <View style={styles.creditContainer}>
                         <TouchableOpacity style={styles.buyButton}
                             onPress = {
-                                () => this.props.navigation.navigate('price', {data: { ...data[this.state.index] }})
+                            () => this.props.navigation.navigate('price', {data: {...data[this.state.index] }})
                             }
                         >
                             <Text style={styles.buyText}>Посмотреть предложения</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.creditButton}
                             onPress = {
-                                () => this.showNewCar()
+                                this.state.index < 2 ?  () => this.showNewCar()
+                                : () => this.props.navigation.navigate('error')
                                 }
                             // onPress = {
                             //     () => this.props.navigation.navigate('model', {user: "Oleg"})
@@ -155,7 +159,7 @@ const styles = StyleSheet.create({
     },
     carText: {
         fontSize: 18,
-        color: '#999ea9'
+        fontWeight: '500'
     },
     carContainer: {
         flex: 2,
@@ -193,7 +197,7 @@ const styles = StyleSheet.create({
         color: '#3a83f1'
     },
     tinyLogo: {
-        width: 250,
+        width: '100%',
         height: 210,
       },
 })

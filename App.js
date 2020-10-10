@@ -9,6 +9,7 @@ import BodyScreen from './screens/Body'
 import PriceScreen from './screens/Price'
 import BrandScreen from './screens/Brand'
 import ModelScreen from './screens/Model'
+import ErrorScreen from './screens/Error'
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ function App() {
                 <Stack.Screen name="brand" component={BrandScreen} />
                 <Stack.Screen name="price" component={PriceScreen} />
                 <Stack.Screen name="model" component={ModelScreen} />
+                <Stack.Screen name="error" component={ErrorScreen} />
             </Stack.Navigator>
         </NavigationContainer>
   )

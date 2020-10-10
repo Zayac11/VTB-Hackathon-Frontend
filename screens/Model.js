@@ -6,7 +6,7 @@ const ModelScreen = ({ route, navigation}) => {
     const {data} = route.params   
     return (
     <View style={styles.container}>
-        <Text>{JSON.stringify(data.title)}</Text>
+        <Text>{(data.title)}</Text>
         <Text>SSS</Text>
     </View>)
 }
