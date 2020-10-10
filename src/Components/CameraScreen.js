@@ -4,8 +4,7 @@ import { Camera } from 'expo-camera';
 import CarModal from '../../modals/CarModal';
 import button from '../../assets/photo.png';
 
-// const host = "http://194.67.92.163/";
-const host = "http:///";
+const host = "http://84.201.142.151:8000/";
 
 export default function CartScreen() {
 	const [perm, setPerm] = useState(null);
@@ -33,7 +32,7 @@ export default function CartScreen() {
 		const type = match ? `image/${match[1]}` : `image`;
 		const formData = new FormData();
   		formData.append('photo', { uri: localUri, name: filename, type });
-		const response = await fetch(host + 'api/photo/recognize', {
+		const response = await fetch(host + 'api/post_cars', {
 			method: 'post',
 			body: formData,
 			headers: {
@@ -43,6 +42,7 @@ export default function CartScreen() {
 		const text = await response.json();
 		console.log(text);
 		setItem(text);
+		// () => navigation.navigate('brand')
 	}
 	
     return (

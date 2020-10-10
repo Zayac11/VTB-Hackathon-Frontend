@@ -1,11 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
 
-const ModelScreen = ({navigation}) => (
+
+const ModelScreen = ({ route, navigation}) => {
+    const {data} = route.params   
+    return (
     <View style={styles.container}>
-        <Text>Model</Text>
-    </View>
-)
+        <Text>{JSON.stringify(data.title)}</Text>
+        <Text>SSS</Text>
+    </View>)
+}
 
 const styles = StyleSheet.create({
     container: {
