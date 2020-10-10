@@ -1,0 +1,70 @@
+{
+    "momo" :
+    [
+        {
+            "currency" : {
+                "rur" : "",
+                "usd" : "",
+                "eur" : "",
+                "doshirak" : ""
+            },
+            "list": [
+                {
+                    "title": "BMW",
+                    "model" : "M5",
+                    "colors" : "",
+                    "doors" : "Sosi pisos",
+                    "type" : "",
+                    "logo": "http://tradeins.space/uploads/brand/4/35dad01f02c529a28f45cb8d47d089fa1e911639.png",
+                    "photo" : "",
+                    "price" : "",
+                    "country" : ""
+                }
+            ]
+        },
+
+        {
+            "currency" : {
+                "rur" : "",
+                "usd" : "",
+                "eur" : "",
+                "doshirak" : ""
+            },
+            "list": [
+                {
+                    "title": "Mer",
+                    "model" : "",
+                    "colors" : "",
+                    "doors" : "",
+                    "type" : "",
+                    "logo": "http://tradeins.space/uploads/brand/4/35dad01f02c529a28f45cb8d47d089fa1e911639.png",
+                    "photo" : "",
+                    "price" : "",
+                    "country" : ""
+                }
+            ]
+        },
+
+        {
+            "currency" : {
+                "rur" : "",
+                "usd" : "",
+                "eur" : "",
+                "doshirak" : ""
+            },
+            "list": [
+                {
+                    "title": "BMW",
+                    "model" : "",
+                    "colors" : "",
+                    "doors" : "",
+                    "type" : "",
+                    "logo": "http://tradeins.space/uploads/brand/4/35dad01f02c529a28f45cb8d47d089fa1e911639.png",
+                    "photo" : "",
+                    "price" : "",
+                    "country" : ""
+                }
+            ]
+        }
+    ]
+}

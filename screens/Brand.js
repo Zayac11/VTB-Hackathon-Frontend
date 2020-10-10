@@ -1,38 +1,76 @@
-import React from 'react';
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import React, { Component } from 'react';
+import {StyleSheet, Text, View, Image, TouchableOpacity, ActivityIndicator, FlatList} from 'react-native';
 import carLogo from '../assets/car.png'
+import jjsonn from '../json.json'
 
-const BrandScreen = ({navigation}) => (
-        
-    <View style={styles.backContainer}>
-        <View style={styles.contentContainer}>
-            <View style={styles.carContainer}>
-                <Image 
-                    style={styles.tinyLogo}
-                    source={carLogo}
-                />
-                <Text style={styles.titleText}>BWM 5</Text>
-                <Text style={styles.carText}>Description</Text>
-            </View>
-            <View style={styles.creditContainer}>
-                <TouchableOpacity style={styles.buyButton}
-                    onPress = {
-                        () => navigation.navigate('model')
-                    }
-                >
-                    <Text style={styles.buyText}>Посмотреть предложения</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.creditButton}
-                    onPress = {
-                        () => navigation.navigate('price')
-                    }
-                >
-                    <Text style={styles.creditText}>Это не тот автомобиль</Text>
-                </TouchableOpacity>
-            </View>
-        </View>               
-    </View>    
-)
+class BrandScreen extends React.Component {
+
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          data: [],
+          isLoading: true
+        };
+      }
+
+      componentDidMount() {
+        fetch('https://reactnative.dev/movies.json')
+          .then((response) => response.json())
+          .then((json) => {
+            this.setState({ data: json.movies });
+          })
+          .catch((error) => console.error(error))
+          .finally(() => {
+            this.setState({ isLoading: false });
+          });
+      }
+
+    render() {
+        const { data, isLoading } = this.state;
+        return (
+            
+            <View style={styles.backContainer}>
+                {isLoading ? <ActivityIndicator/> : (
+                    <View style={styles.contentContainer}>
+                    <View style={styles.carContainer}>
+                        <Image 
+                            style={styles.tinyLogo}
+                            source={carLogo}
+                        />
+                        <Text style={styles.titleText}>{this.state.data[4].title}</Text>
+                        <Text style={styles.carText}>Description</Text>
+                    </View>
+                    <View style={styles.creditContainer}>
+                        <TouchableOpacity style={styles.buyButton}
+                            onPress = {
+                                () => this.props.navigation.navigate('price')
+                            }
+                        >
+                            <Text style={styles.buyText}>Посмотреть предложения</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.creditButton}
+                            onPress = {
+                                () => this.props.navigation.navigate('model')
+                            }
+                        >
+                            <Text style={styles.creditText}>Это не тот автомобиль</Text>
+                        </TouchableOpacity>
+                        {/* <TouchableOpacity style={styles.creditButton}
+                            onPress = {
+                                () => navigation.goBack()
+                            }
+                        >
+                            <Text style={styles.creditText}>Это asdsa тот автомобиль</Text>
+                        </TouchableOpacity> */}
+                    </View>
+                </View> 
+                )}
+                              
+            </View>    
+        )
+    } 
+}
 
 const styles = StyleSheet.create({
     contentContainer: {

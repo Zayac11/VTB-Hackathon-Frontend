@@ -10,9 +10,7 @@ import PriceScreen from './screens/Price'
 import BrandScreen from './screens/Brand'
 import ModelScreen from './screens/Model'
 
-const Stack = createStackNavigator(
-    
-);
+const Stack = createStackNavigator();
 
 function App() {
   return (
