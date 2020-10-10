@@ -22,7 +22,7 @@ const BodyScreen = ({navigation}) => {
                     <TouchableOpacity style={styles.moveBtn}
                     
                     onPress = {
-                        () => navigation.navigate('brand')
+                        () => navigation.navigate('camera')
                     }
                     >
                         <Text style={styles.moveText}>

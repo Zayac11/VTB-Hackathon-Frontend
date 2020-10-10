@@ -1,8 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, ScrollView,Image,TouchableOpacity} from 'react-native';
 import { ceil } from 'react-native-reanimated';
-import carLogo from '../assets/car.png'
-import doshik from '../assets/doshik.png'
 import arrow from '../assets/Union.png'
 
 const PriceScreen = ({ route, navigation}) => {
