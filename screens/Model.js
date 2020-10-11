@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, ScrollView} from 'react-native';
 
 
 const ModelScreen = ({ route, navigation}) => {
-    const {data} = route.params   
+    const {list} = route.params   
     return (
     <View style={styles.container}>
         <Text>{(data.title)}</Text>

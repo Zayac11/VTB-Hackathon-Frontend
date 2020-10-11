@@ -102,7 +102,9 @@ const PriceScreen = ({ route, navigation}) => {
             </View>
             <TouchableOpacity style={styles.buyButton}
                             onPress = {
-                                () => navigation.navigate('body')
+                                () => navigation.navigate('form', {
+                                    list: data 
+                                })
                             }
                         >
                             <Text style={styles.buyText}>Оформить кредит</Text>
