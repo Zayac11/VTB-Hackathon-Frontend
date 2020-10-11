@@ -5,31 +5,33 @@ import {Formik} from 'formik'
 
 export default function FormScreen ({ route, navigation}){
     const {list} = route.params   
-    console.log(list)
+    // console.log(list)
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
             
                 <Formik style={{width: '100%'}}
-                    initialValues={{cost: list.price, initialFee: '', term: ''}}
+                    initialValues={{cost: list.price, initialFee: null, term: null}}
                     onSubmit={(values, actions) => {
                         actions.resetForm()
-                        console.log(values)
+                        console.log(values)                        
                         fetch('http://84.201.142.151:8000/api/post_calculations',{
                             method: 'post',
                             body: JSON.stringify({
                                 cost: values.cost,
                                 initialFee: values.initialFee,
                                 term: values.term,
-                                specialConditions: ["b907b476-5a26-4b25-b9c0-8091e9d5c65f",
-                                "57ba0183-5988-4137-86a6-3d30a4ed8dc9",
-                                "cbfc4ef3-af70-4182-8cf6-e73f361d1e68"]
+                                // specialConditions: ["b907b476-5a26-4b25-b9c0-8091e9d5c65f",
+                                // "57ba0183-5988-4137-86a6-3d30a4ed8dc9",
+                                // "cbfc4ef3-af70-4182-8cf6-e73f361d1e68"]
                             }),
                             headers: {
                                 'content-type': "application/json",
                                 'accept': "application/json"
                             }
-                        })
+                            
+                        }).then(response => response.json())
+                          .then(responsedata => console.log(responsedata))
                     }}
                 >
                     {
