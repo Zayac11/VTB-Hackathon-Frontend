@@ -11,6 +11,7 @@ import BrandScreen from './screens/Brand'
 import ModelScreen from './screens/Model'
 import ErrorScreen from './screens/Error'
 import FormScreen from './screens/Form'
+import RegistrationScreen from './screens/Registration'
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,7 @@ function App() {
                 <Stack.Screen name="model" component={ModelScreen} />
                 <Stack.Screen name="error" component={ErrorScreen} />
                 <Stack.Screen name="form" component={FormScreen} />
+                <Stack.Screen name="register" component={RegistrationScreen} />
             </Stack.Navigator>
         </NavigationContainer>
   )

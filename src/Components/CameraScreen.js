@@ -43,8 +43,9 @@ export default function CartScreen({navigation}) {
 		
 		);
 		const text = await response.json();
-		console.log(text);
+		// console.log(text);
 		// console.log(text[0]);
+		// setItem(text);
 		
 		navigation.navigate('brand', {data: text})
 	}
@@ -68,7 +69,7 @@ export default function CartScreen({navigation}) {
 				{container}
 			</Camera>
 			:
-			<BrandScreen list = {item} />			
+			<BrandScreen data = {item} />			
 			}
         </View>
     );

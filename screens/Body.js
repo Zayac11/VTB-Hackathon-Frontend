@@ -15,18 +15,18 @@ const BodyScreen = ({navigation}) => {
             </View>
             <View style={{width: '100%', height: '60%'}}>
                 <View style={styles.titleContainer}>
-                    <Text  style={styles.titleText}>Welcome!</Text>
-                    <Text style={styles.titleText}>Let's find this car!</Text>
+                    <Text  style={styles.titleText}>Добро пожаловать!</Text>
+                    <Text style={styles.titleText}>Давайте найдем эту машину</Text>
                 </View>
                 <View style={styles.moveContainer}>
                     <TouchableOpacity style={styles.moveBtn}
                     
                     onPress = {
-                        () => navigation.navigate('brand')
+                        () => navigation.navigate('camera')
                     }
                     >
                         <Text style={styles.moveText}>
-                            GO!
+                           ОТКРЫТЬ КАМЕРУ
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -84,9 +84,10 @@ const styles = StyleSheet.create({
         marginBottom: 100
     },
     titleText: {
+        justifyContent: 'center',
         color: '#434343',
         fontWeight: '700',
-        fontSize: 28,
+        fontSize: 22,
         
     }
 })

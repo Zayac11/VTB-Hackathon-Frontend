@@ -14,16 +14,13 @@ export default function FormScreen ({ route, navigation}){
                     initialValues={{cost: list.price, initialFee: null, term: null}}
                     onSubmit={(values, actions) => {
                         actions.resetForm()
-                        console.log(values)                        
+                        // console.log(values)                        
                         fetch('http://84.201.142.151:8000/api/post_calculations',{
                             method: 'post',
                             body: JSON.stringify({
                                 cost: values.cost,
                                 initialFee: values.initialFee,
                                 term: values.term,
-                                // specialConditions: ["b907b476-5a26-4b25-b9c0-8091e9d5c65f",
-                                // "57ba0183-5988-4137-86a6-3d30a4ed8dc9",
-                                // "cbfc4ef3-af70-4182-8cf6-e73f361d1e68"]
                             }),
                             headers: {
                                 'content-type': "application/json",
@@ -31,33 +28,45 @@ export default function FormScreen ({ route, navigation}){
                             }
                             
                         }).then(response => response.json())
-                          .then(responsedata => console.log(responsedata))
-                    }}
+                          .then(responsedata => navigation.navigate('register', {data: responsedata.result, list: list, fail: values}));
+
+                    }
+                }
                 >
                     {
                         (props) => (
-                            <View style={{width: '100%', alignItems: "center",}}>
-                                <View style = {{width:'70%', alignItems: 'center', marginBottom: 5}}>
-                                    <Text style = {{fontWeight: '500', fontSize: 18}}>Price: {list.price}</Text>
+                            <View style={{width: '100%', alignItems: "center"}}>
+                                <View style={{alignItems:'center', width: '70%'}}>     
+                                    <Text style={{textAlignVertical:'center',fontWeight: '700'}}>ПОЛУЧЕНИЕ ИНФОРМАЦИИ </Text>
+                                    <Text style={{textAlignVertical:'center', marginBottom: 25, fontWeight: '700'}}>О СТОИМОСТИ КРЕДИТОВАНИЯ</Text>
                                 </View>
+                                <View style = {{width:'70%', alignItems: 'center', marginBottom: 15}}>
+                                    <Text style = {{fontWeight: '500', fontSize: 18}}>Цена: {list.price}</Text>
+                                </View>
+                                <Text>Первоначальный взнос</Text>
+                                    <TextInput 
+                                        style={styles.input}
+                                        placeholder='Первоначальный взнос'
+                                        onChangeText={props.handleChange('initialFee')}
+                                        value={props.values.initialFee}
+                                        keyboardType = 'numeric'
+                                    />
+
+                                <Text style={{marginTop:10}}>Срок</Text>
                                 <TextInput 
                                     style={styles.input}
-                                    placeholder='Review initialFee'
-                                    onChangeText={props.handleChange('initialFee')}
-                                    value={props.values.initialFee}
-                                    keyboardType = 'numeric'
-                                />
-                                <TextInput 
-                                    style={styles.input}
-                                    placeholder='Review term'
+                                    placeholder='Срок'
                                     onChangeText={props.handleChange('term')}
                                     value={props.values.term}
                                     keyboardType = 'numeric'
                                 />
+                                
                                 <TouchableOpacity style={styles.moveBtn}
-                                    onPress={props.handleSubmit}
+                                    onPress={
+                                        props.handleSubmit                                        
+                                    }
                                 >
-                                    <Text style={{color: 'white'}}>Submit</Text>
+                                    <Text style={{color: 'white'}}>Отправить</Text>
 
                                 </TouchableOpacity>
                             </View>
@@ -78,10 +87,11 @@ const styles = StyleSheet.create({
     input: {
         width: '70%',
         marginHorizontal: 15,
+        padding: 5,
         borderWidth: 1,
         borderColor: 'black',
         borderStyle: 'solid',
-        borderRadius: 10,
+        borderRadius: 3,
         marginVertical: 5
     },
     moveBtn: {

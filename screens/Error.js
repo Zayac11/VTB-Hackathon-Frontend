@@ -11,14 +11,14 @@ const ErrorScreen = ({navigation}) => {
                 source={errorImg}
             />
         </View>
-        <Text style = {{fontSize:18, fontWeight: 'bold', marginBottom: 15}}>Sorry we didn't find this car</Text>
+        <Text style = {{fontSize:18, fontWeight: 'bold', marginBottom: 15}}>Извините, мы не нашли эту машину</Text>
         <TouchableOpacity style={styles.moveBtn}
             onPress = {
                 () => navigation.navigate('body')
             }
             >
                 <Text style={styles.moveText}>
-                    Go back to home
+                    Попробовать ещё раз
                 </Text>
         </TouchableOpacity>
     </View>)

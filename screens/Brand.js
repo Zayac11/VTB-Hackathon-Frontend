@@ -5,44 +5,47 @@ class BrandScreen extends React.Component {
 
     constructor(props) {
         super(props);
+        console.log('props')
+        console.log(props)
             this.state = {
-                // data: props.route.params.data,
-                data: [{
-                    "title": "Mazda", 
-                    "model": "6", 
-                    "colors": 1, 
-                    "doors": 4, 
-                    "type": "sedan", 
-                    "logo":
-                    "http://tradeins.space/uploads/brand/30/b983c4614d3a3f291364ede80acfa14b5950730c.png", 
-                    "photo":
-                    "https://207231.selcdn.ru/locator-media/models_desktop_q90/tradeins.space-uploads-photo-859724-93f1c5c69568d8b20fb050d5964e60eee386cedb.png",
-                    "price": 2262492
-                }, 
-                {
-                    "title": "Cadillac", 
-                    "model": "ESCALADE", 
-                    "colors": 3, 
-                    "doors": 5, 
-                    "type": "suv", 
-                    "logo":
-                    "http://tradeins.space/uploads/brand/6/0ec447411c90475a1fa9557d1ad64879347f7036.png", 
-                    "photo":
-                    "https://tradeins.space/uploads/photo/147093/escalade.jpg", 
-                    "price": 2733100
-                }, 
-                {
-                    "title": "KIA", 
-                    "model": "K5", 
-                    "colors":6, 
-                    "doors": 4, 
-                    "type": "sedan", 
-                    "logo":
-                    "http://tradeins.space/uploads/brand/26/75bb737582b2872e4604976820b0d1cd8112fb9c.png", 
-                    "photo":
-                    "https://207231.selcdn.ru/locator-media/models_desktop_q90/tradeins.space-uploads-photo-7045549-1ed1ce8ed1655930df51584bf5e294dbdee4f469.png",
-                    "price": 1974900
-                }],
+                data: props.route.params.data,
+
+            //     data: [{
+            //         "title": "Mazda", 
+            //         "model": "6", 
+            //         "colors": 1, 
+            //         "doors": 4, 
+            //         "type": "sedan", 
+            //         "logo":
+            //         "http://tradeins.space/uploads/brand/30/b983c4614d3a3f291364ede80acfa14b5950730c.png", 
+            //         "photo":
+            //         "https://207231.selcdn.ru/locator-media/models_desktop_q90/tradeins.space-uploads-photo-859724-93f1c5c69568d8b20fb050d5964e60eee386cedb.png",
+            //         "price": 2262492
+            //     }, 
+            //     {
+            //         "title": "Cadillac", 
+            //         "model": "ESCALADE", 
+            //         "colors": 3, 
+            //         "doors": 5, 
+            //         "type": "suv", 
+            //         "logo":
+            //         "http://tradeins.space/uploads/brand/6/0ec447411c90475a1fa9557d1ad64879347f7036.png", 
+            //         "photo":
+            //         "https://tradeins.space/uploads/photo/147093/escalade.jpg", 
+            //         "price": 2733100
+            //     }, 
+            //     {
+            //         "title": "KIA", 
+            //         "model": "K5", 
+            //         "colors":6, 
+            //         "doors": 4, 
+            //         "type": "sedan", 
+            //         "logo":
+            //         "http://tradeins.space/uploads/brand/26/75bb737582b2872e4604976820b0d1cd8112fb9c.png", 
+            //         "photo":
+            //         "https://207231.selcdn.ru/locator-media/models_desktop_q90/tradeins.space-uploads-photo-7045549-1ed1ce8ed1655930df51584bf5e294dbdee4f469.png",
+            //         "price": 1974900
+            //     }],
                 isLoading: false,
                 index: 0
             };
@@ -58,7 +61,6 @@ class BrandScreen extends React.Component {
 
     render() {
         const { data, isLoading } = this.state;
-        console.log(this.state.data)
         return (
             
             <View style={styles.backContainer}>
@@ -71,7 +73,7 @@ class BrandScreen extends React.Component {
                         />
                         <Text style={styles.titleText}>{this.state.data[this.state.index].title} {this.state.data[this.state.index].model}</Text>
                         <View style = {{width: '100%', paddingHorizontal: 15, flexDirection: 'row', justifyContent: 'space-between'}}> 
-                            <Text style={styles.carText}>Price</Text>
+                            <Text style={styles.carText}>Цена</Text>
                             <Text style={styles.carText}>{this.state.data[this.state.index].price}₽</Text>
                         </View>
                     </View>
@@ -81,7 +83,7 @@ class BrandScreen extends React.Component {
                             () => this.props.navigation.navigate('price', {data: {...data[this.state.index] }})
                             }
                         >
-                            <Text style={styles.buyText}>Посмотреть предложения</Text>
+                            <Text style={styles.buyText}>Посмотреть предложение</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.creditButton}
                             onPress = {

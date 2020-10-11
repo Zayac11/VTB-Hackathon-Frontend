@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, View, ScrollView,Image,TouchableOpacity} from 'react-native';
-import { ceil } from 'react-native-reanimated';
 import arrow from '../assets/Union.png'
 
 const PriceScreen = ({ route, navigation}) => {
@@ -28,33 +27,34 @@ const PriceScreen = ({ route, navigation}) => {
             />
             <View style = {{marginTop: 15, width: '90%'}}>
                 <Text style = {{fontSize: 18, fontWeight: 'bold', textAlign: 'center'}}>
-                    Information
+                    Информация
                 </Text>
                 <View style = {styles.stats}>
-                    <Text style = {styles.statsText}>Type</Text>
+                    <Text style = {styles.statsText}>Тип</Text>
                     <Text style = {styles.statsText}>{data.type}</Text>
                 </View>
                 <View style = {styles.stats}>
-                    <Text style = {styles.statsText}>Doors</Text>
+                    <Text style = {styles.statsText}>Количество дверей</Text>
                     <Text style = {styles.statsText}>{data.doors}</Text>
                 </View>
                 <View style = {styles.stats}>
-                    <Text style = {styles.statsText}>Colors</Text>
+                    <Text style = {styles.statsText}>Количество цветов</Text>
                     <Text style = {styles.statsText}>{data.colors}</Text>
                 </View>
             </View>
             <View style = {{marginVertical: 15, width: '90%'}}>
                 <Text style = {{fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginTop: 20, marginBottom: 15}}>
-                    Pricing
+                    Цена
                 </Text>
 
                 <View style = {styles.stats}>
                     <Text style = {styles.priceText}>
-                       Currency 
+                       Валюта 
                     </Text>
                     <View style = {styles.info}>
-                        <Text style = {styles.priceText}>Rate</Text>
-                        <Text style = {styles.priceText}>Price</Text>
+                        <Text style = {styles.priceText}>
+                            Цена
+                        </Text>
                     </View>
                 </View>
                 <View style = {styles.stats}>
@@ -62,43 +62,9 @@ const PriceScreen = ({ route, navigation}) => {
                         RUR
                     </Text>
                     <View style = {styles.info}>
-                        <Text style = {styles.statsText}>68,65</Text>
                         <Text style = {styles.statsText}>{data.price}₽</Text>
                     </View>
                 </View>
-                {/* <View style = {styles.stats}>
-                    <Text style = {styles.statsText}>
-                        USD
-                    </Text>
-                    <View style = {styles.info}>
-                        <Text style = {styles.statsText}>68,65</Text>
-                        <Text style = {styles.statsText}>36000$</Text>
-                    </View>
-                </View>
-                <View style = {styles.stats}>
-                    <Text style = {styles.statsText}>
-                        EUR
-                    </Text>
-                    <View style = {styles.info}>
-                        <Text style = {styles.statsText}>68,65</Text>
-                        <Text style = {styles.statsText}>30700€</Text>
-                    </View>
-                </View>
-                <View style = {styles.stats}>
-                    <Text style = {styles.statsText}>
-                        DOSHIK
-                    </Text>
-                    <View style = {styles.info}>
-                        <Text style = {styles.statsText}>68,65</Text>
-                        <View style={{flexDirection: 'row'}}>
-                            <Text style = {styles.statsText}>69750</Text>
-                            <Image 
-                                style = {{width: 18, height: 23}}
-                                source = {doshik}
-                            />
-                        </View>
-                    </View>
-                </View> */}
             </View>
             <TouchableOpacity style={styles.buyButton}
                             onPress = {
@@ -107,7 +73,7 @@ const PriceScreen = ({ route, navigation}) => {
                                 })
                             }
                         >
-                            <Text style={styles.buyText}>Оформить кредит</Text>
+                            <Text style={styles.buyText}>Оформить в кредит</Text>
             </TouchableOpacity>
         </View>
     </ScrollView>
@@ -134,7 +100,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: "space-between",
         paddingVertical: 2,
-        width: '60%'
     },
     statsText: {
         fontSize: 18,
